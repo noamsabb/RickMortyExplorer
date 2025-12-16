@@ -1,0 +1,17 @@
+<div class="character-card">
+  <img [src]="character.image" />
+  <p>{{ character.name }}</p>
+  <p>{{ character.status }}</p>
+  <p>{{ character.type }}</p>
+  <p>{{ character.species }}</p>
+  <!-- <span (click)="moreInfo()">+ More info</span> -->
+
+  <button (click)="moreInfoFlag = !moreInfoFlag">Open Modal</button>
+
+  <!-- modal -->
+  <div *ngIf="moreInfoFlag" class="moreInfo-modal">
+    <div>
+      <app-character-details [character]="character"> </app-character-details>
+    </div>
+  </div>
+</div>

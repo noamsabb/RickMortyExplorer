@@ -1,0 +1,57 @@
+<div>
+
+<div class="filtersArea">
+
+<input type="radio" id="male" name="gender" value="Male" [(ngModel)]="selectedGender" (ngModelChange)="filterCharacters()">
+<label for="male">Male</label>
+<input type="radio" id="female" name="gender" value="Female" [(ngModel)]="selectedGender" (ngModelChange)="filterCharacters()">
+<label for="female">Female</label>
+<input type="radio" id="genderless" name="gender" value="Genderless" [(ngModel)]="selectedGender" (ngModelChange)="filterCharacters()">
+<label for="genderless">Genderless</label>
+<input type="radio" id="unknownGender" name="gender" value="Unknown" [(ngModel)]="selectedGender"(ngModelChange)="filterCharacters()">
+<label for="unknownGender">Unknown</label>
+
+<br>
+
+<input type="radio" id="alive" name="status" value="Alive" [(ngModel)]="selectedStatus" (ngModelChange)="filterCharacters()">
+<label for="alive">Alive</label>
+<input type="radio" id="dead" name="status" value="Dead" [(ngModel)]="selectedStatus" (ngModelChange)="filterCharacters()">
+<label for="dead">Dead</label>
+<input type="radio" id="unknown" name="status" value="Unknown" [(ngModel)]="selectedStatus" (ngModelChange)="filterCharacters()">
+<label for="unknown">Unknown</label>
+
+<br>
+<br>
+
+<select [(ngModel)] = "selectedType" id="typesDropdown" (ngModelChange)="filterCharacters()">
+    <option selected value="">
+        Select Type ...
+    </option>
+    @for (type of types; track $index) {
+        <option value="type">{{type}}</option>
+    }
+</select>
+<br>
+<select [(ngModel)] = "selectedSpecies" id="speciesDropdown" (ngModelChange)="filterCharacters()">
+    <option selected value="">
+        Select Species ...
+    </option>
+    @for (species of species; track $index) {
+        <option value="species">{{species}}</option>
+    }
+</select>
+
+</div>
+<br><br><br>
+<button (click)="resetFilters()"> Clear Filters </button>
+
+<hr>
+
+<div class="characters-container">
+    @for (c of charactersToDisplay; track $index) {
+       <app-character-card [character] = "c"> </app-character-card>
+}
+</div>
+
+
+</div>
