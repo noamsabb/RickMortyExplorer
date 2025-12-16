@@ -60,8 +60,12 @@ export class List implements OnInit {
     const matchesGender = !this.selectedGender || c.gender === this.selectedGender;
     const matchesStatus = !this.selectedStatus || c.status === this.selectedStatus;
     const matchesType = !this.selectedType || c.type === this.selectedType;
+    const matchesSpecies = !this.selectedSpecies || c.species === this.selectedSpecies;
 
-    return matchesGender && matchesStatus && matchesType;
+    console.log("type" + this.selectedType);
+    console.log("species" + this.selectedSpecies);
+    
+    return matchesGender && matchesStatus && matchesType && matchesSpecies;
   });
  }
 
@@ -69,6 +73,7 @@ export class List implements OnInit {
   this.selectedGender = '';
   this.selectedStatus = '';
   this.selectedType = '';
+  this.selectedSpecies = '';
   this.charactersToDisplay = this.allCharacters;
 }
 }

@@ -10,6 +10,8 @@
 <label for="genderless">Genderless</label>
 <input type="radio" id="unknownGender" name="gender" value="Unknown" [(ngModel)]="selectedGender"(ngModelChange)="filterCharacters()">
 <label for="unknownGender">Unknown</label>
+<input type="radio" id="allGender" name="gender" value="" [(ngModel)]="selectedGender"(ngModelChange)="filterCharacters()">
+<label for="allGender">All</label>
 
 <br>
 
@@ -19,6 +21,8 @@
 <label for="dead">Dead</label>
 <input type="radio" id="unknown" name="status" value="Unknown" [(ngModel)]="selectedStatus" (ngModelChange)="filterCharacters()">
 <label for="unknown">Unknown</label>
+<input type="radio" id="all" name="status" value="" [(ngModel)]="selectedStatus"(ngModelChange)="filterCharacters()">
+<label for="all">All</label>
 
 <br>
 <br>
@@ -28,7 +32,7 @@
         Select Type ...
     </option>
     @for (type of types; track $index) {
-        <option value="type">{{type}}</option>
+        <option [value]="type">{{type}}</option>
     }
 </select>
 <br>
@@ -37,7 +41,7 @@
         Select Species ...
     </option>
     @for (species of species; track $index) {
-        <option value="species">{{species}}</option>
+        <option [value]="species">{{species}}</option>
     }
 </select>
 
