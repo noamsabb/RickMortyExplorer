@@ -20,6 +20,7 @@ export class List implements OnInit {
   public selectedGender: string = "";
   public selectedType: string = "";
   public selectedSpecies: string = "";
+  public textToSearch: string = "";
   public species: string[] = [];
   public types: string[] = [];
 
@@ -27,7 +28,17 @@ export class List implements OnInit {
 
   public async ngOnInit(): Promise<void> {
     try {
-      this.allCharacters = await this.characterService.getAllCharacters();
+      const cachedCharacters = localStorage.getItem('allCharacters');
+      
+      if (cachedCharacters) {
+        // Load from cache
+        this.allCharacters = JSON.parse(cachedCharacters);
+      } else {
+        // Load from API
+        this.allCharacters = await this.characterService.getAllCharacters();
+        localStorage.setItem('allCharacters', JSON.stringify(this.allCharacters));
+      }
+      
       this.charactersToDisplay = this.allCharacters;
       this.getSpecies();
       this.getTypes();
@@ -57,15 +68,19 @@ export class List implements OnInit {
 
  filterCharacters(){
   this.charactersToDisplay = this.allCharacters.filter((c) => {
+    //Check Filters
     const matchesGender = !this.selectedGender || c.gender === this.selectedGender;
     const matchesStatus = !this.selectedStatus || c.status === this.selectedStatus;
     const matchesType = !this.selectedType || c.type === this.selectedType;
     const matchesSpecies = !this.selectedSpecies || c.species === this.selectedSpecies;
 
-    console.log("type" + this.selectedType);
-    console.log("species" + this.selectedSpecies);
+    //Search Engine:
+    const matchesName = !this.textToSearch.trim() || 
+  c.name.toLowerCase().includes(this.textToSearch.trim().toLowerCase());
     
-    return matchesGender && matchesStatus && matchesType && matchesSpecies;
+  console.log(this.textToSearch);
+  
+    return matchesGender && matchesStatus && matchesType && matchesSpecies && matchesName;
   });
  }
 
@@ -74,6 +89,7 @@ export class List implements OnInit {
   this.selectedStatus = '';
   this.selectedType = '';
   this.selectedSpecies = '';
+  this.textToSearch = '';
   this.charactersToDisplay = this.allCharacters;
 }
 }

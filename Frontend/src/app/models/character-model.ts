@@ -1,5 +1,5 @@
 export class CharacterModel {
-  public _id!: string;
+  public id!: number;
   public name!: string;
   public gender!: string;
   public status!: string;

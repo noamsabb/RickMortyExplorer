@@ -17,8 +17,8 @@ export class RouteNotFound extends ClientError {
 }
 
 export class ResourceNotFound extends ClientError {
-    public constructor(_id: string | ObjectId) {
-        super(StatusCode.NotFound, `_id ${_id} not found.`);
+    public constructor(id: string | ObjectId) {
+        super(StatusCode.NotFound, `id ${id} not found.`);
     }
 }
 

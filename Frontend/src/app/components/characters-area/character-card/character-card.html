@@ -1,10 +1,10 @@
 <div class="character-card">
+  <button (click)="clickFavorite()">{{isFavoriteFlag ? '❤️': '🤍'}}</button>
   <img [src]="character.image" />
   <p>{{ character.name }}</p>
   <p>{{ character.status }}</p>
   <p>{{ character.type }}</p>
   <p>{{ character.species }}</p>
-  <!-- <span (click)="moreInfo()">+ More info</span> -->
 
   <button (click)="moreInfoFlag = !moreInfoFlag">Open Modal</button>
 
