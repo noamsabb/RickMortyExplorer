@@ -2,7 +2,7 @@ import { Component, HostListener, inject, Input, OnInit } from '@angular/core';
 import { CharacterModel } from '../../../models/character-model';
 import { CharacterDetails } from "../character-details/character-details";
 import { CommonModule } from '@angular/common';
-import { Favorites } from '../favorites/favorites';
+import { Favorites } from '../../user-area/favorites/favorites';
 import { FavoriteService } from '../../../services/favorite-service';
 
 
@@ -45,9 +45,9 @@ export class CharacterCard implements OnInit {
     }
   }
 
-  @HostListener('window:scroll')
-  onScroll() {
-    this.moreInfoFlag = false;
-  }
+  // @HostListener('window:scroll')
+  // onScroll() {
+  //   this.moreInfoFlag = false;
+  // }
 
 }

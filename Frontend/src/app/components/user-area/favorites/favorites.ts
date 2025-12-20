@@ -1,7 +1,7 @@
 import { Component, inject } from "@angular/core";
 import { CharacterModel } from "../../../models/character-model";
 import { FavoriteService } from "../../../services/favorite-service";
-import { CharacterCard } from "../character-card/character-card";
+import { CharacterCard } from "../../characters-area/character-card/character-card";
 
 @Component({
   selector: "app-favorites",
@@ -18,7 +18,6 @@ export class Favorites {
 //TODO: Delete
   showFavorites(){
     console.log(this.favoritesCharacters);
-    
   }
 
   deleteFavorites(){

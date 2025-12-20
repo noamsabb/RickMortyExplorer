@@ -1,15 +1,11 @@
-<p>favorites works!</p>
-
 <button (click)="deleteFavorites()">Delete Favorites</button>
-<!-- //TODO: Delete -->
-<button (click)="showFavorites()">Show Favorites</button>
-
 
  <div class="characters-container">
     @for (c of favoritesCharacters; track $index) {
     <app-character-card [character]="c"> </app-character-card>
     }
     @if (favoritesCharacters.length === 0) {
+        <img src="/assets/squanchy.png">
         <span>No favorites characters yet. Go choose your favorites squanch </span>
     }   
   </div>

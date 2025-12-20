@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 import { Home } from './components/pages-area/home/home';
 import { List } from './components/characters-area/list/list';
-import { Favorites } from './components/characters-area/favorites/favorites';
+import { Favorites } from './components/user-area/favorites/favorites';
 
 
 export const routes: Routes = [

@@ -1,0 +1,27 @@
+  <div class="history-overlay" (click)="closeHistory()">
+  <div class="history-panel" (click)="$event.stopPropagation()">
+    
+    <div class="history-header">
+      <h3>Search History</h3>
+      <button (click)="deleteSearchHistory()">Delete All history</button>
+      <button class="close-btn" (click)="closeHistory()">✕</button>
+    </div>
+
+    <div class="history-content">
+      @if (searchHistory.length === 0) {
+        <p class="empty-message">No search history yet</p>
+      } @else {
+        @for (entry of searchHistory; track entry.id) {
+          <div class="history-item">
+            <p><strong>Search:</strong> {{ entry.textToSearch || 'No text' }}</p>
+            <p><strong>Gender:</strong> {{ entry.gender || 'All' }}</p>
+            <p><strong>Status:</strong> {{ entry.status || 'All' }}</p>
+            <p><strong>Type:</strong> {{ entry.type || 'All' }}</p>
+            <p><strong>Species:</strong> {{ entry.species || 'All' }}</p>
+          </div>
+        }
+      }
+    </div>
+
+  </div>
+</div>

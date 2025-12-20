@@ -43,7 +43,6 @@ export class FavoriteService {
   }
 
   deleteFavorite(character: CharacterModel) {
-    console.log(character.name);
     this.favoriteCharacters = this.favoriteCharacters.filter(
       (f) => f.id !== character.id
     );

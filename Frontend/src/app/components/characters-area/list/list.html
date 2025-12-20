@@ -85,7 +85,8 @@
     />
     <label for="all">All</label>
 
-    <br /> <br />
+    <br />
+    <br />
 
     <select
       [(ngModel)]="selectedType"
@@ -97,7 +98,8 @@
       <option [value]="type">{{ type }}</option>
       }
     </select>
-    <br /> <br>
+    <br />
+    <br />
 
     <select
       [(ngModel)]="selectedSpecies"
@@ -109,20 +111,34 @@
       <option [value]="species">{{ species }}</option>
       }
     </select>
-<br><br>
-
-    <textarea name="search"[(ngModel)]="textToSearch" (ngModelChange)="filterCharacters()" id="searchTextArea" >Search for character ..</textarea>
-
-
     <br /><br />
 
+    <textarea
+      name="search"
+      [(ngModel)]="textToSearch"
+      (ngModelChange)="filterCharacters()"
+      id="searchTextArea"
+    >
+Search for character ..</textarea
+    >
+
+    <br /><br />
 
     <button (click)="resetFilters()">Clear Filters</button>
   </div>
 
+  <br />
+  <button (click)="toggleHistory()">
+    Show Search History
+  </button>
+
+  <!--Search History panel -->
+  <app-search-history *ngIf="showHistory" (close)="showHistory = false">
+  </app-search-history>
+
   <hr />
 
-    <p>Total results in your research: {{charactersToDisplay.length}} </p>
+  <p>Total results in your research: {{ charactersToDisplay.length }}</p>
 
   <div class="characters-container">
     @for (c of charactersToDisplay; track $index) {
