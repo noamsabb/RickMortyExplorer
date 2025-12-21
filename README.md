@@ -36,10 +36,10 @@ Make sure you have the following installed on your machine:
     npm start
     ```
 
-2. The backend and frontend should launch. Once everything is running, your browser should automatically open. If it doesn't, go to [http://localhost:3000](http://localhost:3000).
+2. The backend and frontend should launch. Once everything is running, your browser should automatically open. If it doesn't, go to [http://localhost:4000](http://localhost:4000).
 
     - The frontend will be hosted at [http://localhost:4000](http://localhost:4000).
-    - The backend will run on its designated port.
+    - The backend will run on its designated port.(
 
 ### Folder Structure
 
