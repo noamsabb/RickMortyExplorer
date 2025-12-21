@@ -40,8 +40,3 @@ Make sure you have the following installed on your machine:
 
     - The frontend will be hosted at [http://localhost:4000](http://localhost:4000).
     - The backend will run on its designated port.(
-
-### Folder Structure
-
-- **`frontend/`**: Contains the React frontend.
-- **`backend/`**: Contains the Node.js/Express backend.
