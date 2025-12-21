@@ -45,7 +45,3 @@ Make sure you have the following installed on your machine:
 
 - **`frontend/`**: Contains the React frontend.
 - **`backend/`**: Contains the Node.js/Express backend.
-
----
-
-Let me know if you'd like to add a "Contributing" or "License" section!
