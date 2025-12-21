@@ -1,0 +1,63 @@
+/* ============================================
+   404 ERROR PAGE
+   ============================================ */
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.error-container img {
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+  margin-bottom: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  opacity: 0.9;
+}
+
+.error-container h1 {
+  font-size: 6rem;
+  font-weight: 900;
+  color: var(--dark-grey);
+  margin: 20px 0;
+  letter-spacing: -3px;
+}
+
+.error-container .catchphrase {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent-grey);
+  margin: 10px 0;
+  font-style: italic;
+}
+
+.error-container .message {
+  font-size: 1.3rem;
+  color: var(--medium-grey);
+  margin: 10px 0 40px;
+}
+
+.home-button {
+  padding: 15px 40px;
+  background-color: var(--dark-grey);
+  color: var(--cream-white);
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-block;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.home-button:hover {
+  background-color: var(--accent-grey);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}

@@ -1,4 +1,3 @@
-import { log } from "console";
 import { appConfig } from "../2-utils/app-config";
 
 class DataService {

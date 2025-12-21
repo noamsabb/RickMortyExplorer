@@ -1,5 +1,10 @@
 <div>
+  <!-- ============================================
+       FILTERS AREA - Character filtering controls
+       ============================================ -->
   <div class="filtersArea">
+    <!-- Gender Filter Section -->
+    <div class="filter-group">
     <input
       type="radio"
       id="male"
@@ -45,9 +50,10 @@
       (ngModelChange)="filterCharacters()"
     />
     <label for="allGender">All</label>
+    </div>
 
-    <br />
-
+    <!-- Status Filter Section -->
+    <div class="filter-group">
     <input
       type="radio"
       id="alive"
@@ -84,10 +90,10 @@
       (ngModelChange)="filterCharacters()"
     />
     <label for="all">All</label>
+    </div>
 
-    <br />
-    <br />
-
+    <!-- Type Dropdown Filter -->
+    <div class="filter-group">
     <select
       [(ngModel)]="selectedType"
       id="typesDropdown"
@@ -98,9 +104,10 @@
       <option [value]="type">{{ type }}</option>
       }
     </select>
-    <br />
-    <br />
+    </div>
 
+    <!-- Species Dropdown Filter -->
+    <div class="filter-group">
     <select
       [(ngModel)]="selectedSpecies"
       id="speciesDropdown"
@@ -111,38 +118,45 @@
       <option [value]="species">{{ species }}</option>
       }
     </select>
-    <br /><br />
+    </div>
 
+    <!-- Text Search Input -->
+    <div class="filter-group">
     <textarea
       name="search"
       [(ngModel)]="textToSearch"
       (ngModelChange)="filterCharacters()"
       id="searchTextArea"
-    >
-Search for character ..</textarea
-    >
+    >Search for character ..</textarea>
+    </div>
 
-    <br /><br />
-
+    <div class="filter-group">
     <button (click)="resetFilters()">Clear Filters</button>
+    </div>
   </div>
+  <!-- End Filters Area -->
 
-  <br />
-  <button (click)="toggleHistory()">
-    Show Search History
-  </button>
+  <!-- ============================================
+       SEARCH HISTORY SECTION
+       ============================================ -->
+  <div class="history-section">
+  <button (click)="toggleHistory()">Show Search History</button>
 
   <!--Search History panel -->
   <app-search-history *ngIf="showHistory" (close)="showHistory = false">
   </app-search-history>
+  </div>
 
-  <hr />
-
+  <!-- ============================================
+       RESULTS SECTION
+       ============================================ -->
+  <div class="results-section">
   <p>Total results in your research: {{ charactersToDisplay.length }}</p>
 
   <div class="characters-container">
     @for (c of charactersToDisplay; track $index) {
     <app-character-card [character]="c"> </app-character-card>
     }
+  </div>
   </div>
 </div>

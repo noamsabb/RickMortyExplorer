@@ -1,10 +1,15 @@
+<!-- More info modal -->
 <div class="more-info">
-<p>Origin: {{ character.origin?.name }}</p>
+
+  <p>Origin: {{ character.origin?.name }}</p>
   <p>Current Location: {{ character.location?.name }}</p>
   <p>Episode list:</p>
+
   <div class="episodes-box">
+    <!-- Extract episode number from url and display -->
     @for (episodeUrl of character.episode; track $index) {
     <div>Episode {{ episodeUrl.split("episode/")[1] }}</div>
     }
   </div>
+  
 </div>

@@ -1,20 +1,27 @@
+/* ============================================
+   SEARCH HISTORY OVERLAY
+   ============================================ */
 .history-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(90, 90, 90, 0.6);
   z-index: 999;
   display: flex;
   justify-content: flex-end;
+  backdrop-filter: blur(2px);
 }
 
+/* ============================================
+   SIDE PANEL
+   ============================================ */
 .history-panel {
-  width: 400px;
+  width: 450px;
   height: 100vh;
-  background: white;
-  box-shadow: -2px 0 10px rgba(0,0,0,0.3);
+  background: var(--cream-white);
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.2);
   overflow-y: auto;
   display: flex;
   flex-direction: column;
@@ -22,54 +29,177 @@
 }
 
 @keyframes slideIn {
-  from { transform: translateX(100%); }
-  to { transform: translateX(0); }
+  from { 
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to { 
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
+/* ============================================
+   HEADER
+   ============================================ */
 .history-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
-  border-bottom: 1px solid #ddd;
+  padding: 25px;
+  border-bottom: 2px solid var(--soft-grey);
   background: white;
   position: sticky;
   top: 0;
-  z-index: 1;
+  z-index: 10;
+  gap: 15px;
 }
 
 .history-header h3 {
   margin: 0;
+  font-size: 1.5rem;
+  color: var(--dark-grey);
+  font-weight: 700;
+}
+
+.history-header button {
+  padding: 8px 16px;
+  background-color: var(--medium-grey);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.history-header button:hover {
+  background-color: #dc3545;
+  transform: translateY(-2px);
 }
 
 .close-btn {
-  background: none;
+  background: var(--soft-grey) !important;
+  color: var(--dark-grey) !important;
   border: none;
-  font-size: 24px;
+  font-size: 1.5rem !important;
   cursor: pointer;
-  padding: 0;
+  width: 35px;
+  height: 35px;
+  border-radius: 50% !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 !important;
+  transition: all 0.3s ease;
 }
 
+.close-btn:hover {
+  background-color: var(--dark-grey) !important;
+  color: white !important;
+  transform: rotate(90deg) !important;
+}
+
+/* ============================================
+   CONTENT AREA
+   ============================================ */
 .history-content {
+  padding: 20px;
   flex: 1;
   overflow-y: auto;
-  padding: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
+/* Empty state styling */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.history-content img {
+  max-width: 250px;
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  opacity: 0.9;
+}
+
+.empty-message {
+  text-align: center;
+  color: var(--accent-grey);
+  font-size: 1.2rem;
+  line-height: 1.8;
+  max-width: 350px;
+  padding: 0 20px;
+  margin: 0;
+  font-style: italic;
+}
+
+/* ============================================
+   HISTORY ITEMS
+   ============================================ */
 .history-item {
-  padding: 15px;
-  margin-bottom: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background 0.2s;
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border-left: 4px solid var(--medium-grey);
 }
 
 .history-item:hover {
-  background: #f5f5f5;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  transform: translateX(-5px);
+  border-left-color: var(--dark-grey);
 }
 
 .history-item p {
+  margin: 8px 0;
+  color: var(--dark-grey);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.history-item p strong {
+  color: var(--accent-grey);
+  font-weight: 600;
+  display: inline-block;
+  min-width: 80px;
+}
+
+.history-item p:first-child {
+  font-size: 1rem;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--soft-grey);
+}
+
+/* ============================================
+   SCROLLBAR
+   ============================================ */
+.history-panel::-webkit-scrollbar {
+  width: 10px;
+}
+
+.history-panel::-webkit-scrollbar-track {
+  background: var(--soft-grey);
+}
+
+.history-panel::-webkit-scrollbar-thumb {
+  background: var(--medium-grey);
+  border-radius: 5px;
+}
+
+.history-panel::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-grey);
+}
   margin: 5px 0;
 }
 

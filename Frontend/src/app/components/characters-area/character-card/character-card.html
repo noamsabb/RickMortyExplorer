@@ -1,5 +1,7 @@
-<div class="character-card">
+<div class="character-card" (mouseleave)="moreInfoFlag = false">
+
   <button (click)="clickFavorite()">{{isFavoriteFlag ? '❤️': '🤍'}}</button>
+  
   <img [src]="character.image" />
   <p>{{ character.name }}</p>
   <p>{{ character.status }}</p>
@@ -8,10 +10,12 @@
 
   <button (click)="moreInfoFlag = !moreInfoFlag">Open Modal</button>
 
-  <!-- modal -->
+  <!-- More Info modal -->
   <div *ngIf="moreInfoFlag" class="moreInfo-modal">
     <div>
       <app-character-details [character]="character"> </app-character-details>
     </div>
+
   </div>
+  
 </div>

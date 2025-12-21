@@ -1,0 +1,34 @@
+/* Layout wrapper */
+div {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header section */
+header {
+    background-color: var(--soft-grey);
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Horizontal dividers */
+hr {
+    border: none;
+    border-top: 1px solid var(--medium-grey);
+    margin: 0;
+    opacity: 0.3;
+}
+
+/* Navigation section */
+nav {
+    background-color: var(--cream-white);
+    padding: 15px;
+}
+
+/* Main content area */
+main {
+    flex: 1;
+    padding: 20px;
+    background-color: var(--cream-white);
+}

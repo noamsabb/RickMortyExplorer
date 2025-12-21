@@ -1,4 +1,21 @@
+
+:root {
+    --cream-white: #FAF8F3;
+    --soft-grey: #E8E6E1;
+    --medium-grey: #A8A7A3;
+    --dark-grey: #5A5A5A;
+    --accent-grey: #767676;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 html, body {
     height: 100%;
-    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--cream-white);
+    color: var(--dark-grey);
 }

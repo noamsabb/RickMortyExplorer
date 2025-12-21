@@ -14,13 +14,15 @@ import { SearchHistory } from "../../user-area/search-history/search-history";
   styleUrl: "./list.css",
 })
 export class List implements OnInit {
+  //Dependency Injection
   private characterService = inject(CharacterService);
   private historyService = inject(HistoryService);
 
+  //Character data properties
   public allCharacters: CharacterModel[] = [];
   public charactersToDisplay: CharacterModel[] = [];
-  public filteredCharacters: CharacterModel[] = [];
-  public filter: string = "";
+
+  //Filter properties
   public selectedStatus: string = "";
   public selectedGender: string = "";
   public selectedType: string = "";
@@ -28,11 +30,19 @@ export class List implements OnInit {
   public textToSearch: string = "";
   public species: string[] = [];
   public types: string[] = [];
+
+  //History properties
   private searchTimeout: any = null;
   public showHistory: boolean = false;
 
+  /*
+  Onload: 
+      -load characters from cache or server
+      -populates filter dropdown from data
+  */
   public async ngOnInit(): Promise<void> {
     try {
+      //Check on local memory for already loaded characters list
       const cachedCharacters = localStorage.getItem("allCharacters");
 
       if (cachedCharacters) {
@@ -55,7 +65,7 @@ export class List implements OnInit {
     }
   }
 
-  //Create list of all different species for filter
+  //Create list of all different species for filter from data
   getSpecies() {
     this.species = Array.from(
       new Set(
@@ -63,7 +73,7 @@ export class List implements OnInit {
       )
     );
   }
-  //Create list of all different types for filter
+  //Create list of all different types for filter from data
   getTypes() {
     this.types = Array.from(
       new Set(
@@ -72,9 +82,12 @@ export class List implements OnInit {
     );
   }
 
+  // ============================================
+  // FILTERING LOGIC
+  // ============================================
   filterCharacters() {
     this.charactersToDisplay = this.allCharacters.filter((c) => {
-      //Check Filters
+      //Check each Filters
       const matchesGender =
         !this.selectedGender || c.gender === this.selectedGender;
       const matchesStatus =
@@ -88,6 +101,7 @@ export class List implements OnInit {
         !this.textToSearch.trim() ||
         c.name.toLowerCase().includes(this.textToSearch.trim().toLowerCase());
 
+        //Every filter need to match 
       return (
         matchesGender &&
         matchesStatus &&
@@ -97,32 +111,36 @@ export class List implements OnInit {
       );
     });
 
-      if (this.searchTimeout) {
+
+    if (this.searchTimeout) {
       clearTimeout(this.searchTimeout);
     }
-    //Add search entry to search history
-    // Wait 5 seconds before adding entry to searchHistory to avoid not finished entries
+    // Wait 2 seconds before adding entry to searchHistory to avoid not finished entries
     this.searchTimeout = setTimeout(() => {
       this.addToHistory();
     }, 2000); // 2 second delay
   }
 
-   private addToHistory(): void {
+  //Adding entry to search History based on filters values
+  private addToHistory(): void {
     this.historyService.addSearchEntry(
       this.selectedGender,
       this.selectedStatus,
       this.selectedType,
       this.selectedSpecies,
-      this.textToSearch
+      this.textToSearch,
+      this.charactersToDisplay.length
+
     );
   }
 
   resetFilters() {
-     // Clear timeout when resetting filters
+    // Clear timeout when resetting filters
     if (this.searchTimeout) {
       clearTimeout(this.searchTimeout);
     }
 
+    //Clear all filters
     this.selectedGender = "";
     this.selectedStatus = "";
     this.selectedType = "";
@@ -131,22 +149,8 @@ export class List implements OnInit {
     this.charactersToDisplay = this.allCharacters;
   }
 
-    toggleHistory(): void {
+  //Show/Hide searchHistory Panel
+  toggleHistory(): void {
     this.showHistory = !this.showHistory;
   }
-
-  loadHistoryEntry(entry: searchEntry): void {
-  // Apply the filters from history
-  this.selectedGender = entry.gender;
-  this.selectedStatus = entry.status;
-  this.selectedType = entry.type;
-  this.selectedSpecies = entry.species;
-  this.textToSearch = entry.textToSearch;
-  
-  // Re-run the filter
-  this.filterCharacters();
-  
-  // Close the panel
-  this.showHistory = false;
-}
 }

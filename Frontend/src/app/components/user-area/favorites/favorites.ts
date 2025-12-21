@@ -10,17 +10,16 @@ import { CharacterCard } from "../../characters-area/character-card/character-ca
   styleUrl: "./favorites.css",
 })
 export class Favorites {
+  //Dependency injection
   private favoriteService = inject(FavoriteService);
+
+  //Get favorite characters from Favorite service
   get favoritesCharacters(): CharacterModel[] {
     return this.favoriteService.getFavorites();
   }
 
-//TODO: Delete
-  showFavorites(){
-    console.log(this.favoritesCharacters);
-  }
-
   deleteFavorites(){
+    if(confirm("All of your favorites will be deleted. Are you Sure ? "))
     this.favoriteService.deleteAllFavorites();
   }
 }

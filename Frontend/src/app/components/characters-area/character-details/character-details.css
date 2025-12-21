@@ -1,4 +1,73 @@
-.episodes-box{
-    max-height: 150px;
-    overflow: scroll;
+/* ============================================
+   MORE INFO CONTENT
+   ============================================ */
+.more-info {
+  padding: 20px;
+  background-color: white;
+  border-top: 2px solid var(--soft-grey);
+}
+
+.more-info p {
+  margin: 10px 0;
+  color: var(--dark-grey);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.more-info p:first-child,
+.more-info p:nth-child(2) {
+  font-weight: 600;
+}
+
+.more-info p:nth-child(3) {
+  font-weight: 700;
+  margin-top: 16px;
+  margin-bottom: 12px;
+  color: var(--accent-grey);
+}
+
+/* ============================================
+   EPISODES BOX
+   ============================================ */
+.episodes-box {
+  max-height: 200px;
+  overflow-y: auto;
+  background-color: var(--soft-grey);
+  border-radius: 8px;
+  padding: 12px;
+  margin-top: 8px;
+}
+
+.episodes-box div {
+  padding: 8px 12px;
+  margin: 4px 0;
+  background-color: white;
+  border-radius: 6px;
+  color: var(--dark-grey);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.episodes-box div:hover {
+  background-color: var(--cream-white);
+}
+
+/* Custom scrollbar */
+.episodes-box::-webkit-scrollbar {
+  width: 8px;
+}
+
+.episodes-box::-webkit-scrollbar-track {
+  background: var(--cream-white);
+  border-radius: 4px;
+}
+
+.episodes-box::-webkit-scrollbar-thumb {
+  background: var(--medium-grey);
+  border-radius: 4px;
+}
+
+.episodes-box::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-grey);
 }

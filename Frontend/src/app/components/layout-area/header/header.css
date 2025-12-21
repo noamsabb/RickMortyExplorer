@@ -1,0 +1,12 @@
+div {
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--dark-grey);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0;
+}

@@ -1,6 +1,165 @@
+/* ============================================
+   FILTERS AREA STYLING
+   ============================================ */
+.filtersArea {
+  background-color: var(--soft-grey);
+  padding: 30px;
+  border-radius: 12px;
+  margin: 20px auto;
+  max-width: 900px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Filter groups - replaces <br> spacing */
+.filter-group {
+  margin-bottom: 25px;
+}
+
+.filter-group:last-child {
+  margin-bottom: 0;
+}
+
+/* Radio buttons and labels */
+.filtersArea input[type="radio"] {
+  margin-right: 8px;
+  margin-left: 15px;
+  cursor: pointer;
+  accent-color: var(--dark-grey);
+}
+
+.filtersArea input[type="radio"]:first-of-type {
+  margin-left: 0;
+}
+
+.filtersArea label {
+  color: var(--dark-grey);
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.filtersArea label:hover {
+  color: var(--accent-grey);
+}
+
+/* Dropdowns */
+.filtersArea select {
+  padding: 12px 16px;
+  border: 2px solid var(--medium-grey);
+  border-radius: 8px;
+  background-color: var(--cream-white);
+  color: var(--dark-grey);
+  font-size: 1rem;
+  cursor: pointer;
+  min-width: 200px;
+  transition: border-color 0.3s ease;
+}
+
+.filtersArea select:hover {
+  border-color: var(--accent-grey);
+}
+
+.filtersArea select:focus {
+  outline: none;
+  border-color: var(--dark-grey);
+}
+
+/* Search textarea */
+.filtersArea textarea {
+  width: 100%;
+  max-width: 500px;
+  padding: 12px 16px;
+  border: 2px solid var(--medium-grey);
+  border-radius: 8px;
+  background-color: var(--cream-white);
+  color: var(--dark-grey);
+  font-size: 1rem;
+  font-family: inherit;
+  resize: vertical;
+  min-height: 80px;
+  transition: border-color 0.3s ease;
+}
+
+.filtersArea textarea:hover {
+  border-color: var(--accent-grey);
+}
+
+.filtersArea textarea:focus {
+  outline: none;
+  border-color: var(--dark-grey);
+}
+
+/* Clear filters button */
+.filtersArea button {
+  padding: 12px 24px;
+  background-color: var(--dark-grey);
+  color: var(--cream-white);
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filtersArea button:hover {
+  background-color: var(--accent-grey);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* ============================================
+   HISTORY SECTION
+   ============================================ */
+.history-section {
+  margin: 40px auto;
+  padding: 20px 0;
+  border-top: 1px solid rgba(168, 167, 163, 0.3);
+  border-bottom: 1px solid rgba(168, 167, 163, 0.3);
+}
+
+.history-section button {
+  padding: 12px 24px;
+  background-color: var(--medium-grey);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 0 auto;
+  display: block;
+}
+
+.history-section button:hover {
+  background-color: var(--accent-grey);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* ============================================
+   RESULTS SECTION
+   ============================================ */
+.results-section {
+  margin-top: 40px;
+}
+
+.results-section p {
+  text-align: center;
+  font-size: 1.2rem;
+  color: var(--accent-grey);
+  margin: 20px 0;
+  font-weight: 500;
+}
+
+/* Character cards container */
 .characters-container {
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
   padding: 30px;
+  justify-content: center;
+  max-width: 1400px;
+  margin: 0 auto;
 }
