@@ -3,19 +3,37 @@
    ============================================ */
 .filtersArea {
   background-color: var(--soft-grey);
-  padding: 30px;
+  padding: 25px;
   border-radius: 12px;
   margin: 20px auto;
   max-width: 900px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
-/* Filter groups - replaces <br> spacing */
-.filter-group {
-  margin-bottom: 25px;
+/* Grid layout for radio buttons and dropdowns */
+.filters-grid {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 30px;
+  margin-bottom: 20px;
+  align-items: start;
 }
 
-.filter-group:last-child {
+.radio-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.dropdown-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 220px;
+}
+
+/* Filter groups - replaces <br> spacing */
+.filter-group {
   margin-bottom: 0;
 }
 
@@ -64,8 +82,15 @@
   border-color: var(--dark-grey);
 }
 
-/* Search textarea */
-.filtersArea textarea {
+/* Search input (changed from textarea) */
+.search-group {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-top: 1px solid var(--medium-grey);
+  margin-bottom: 20px;
+}
+
+.filtersArea input[type="text"] {
   width: 100%;
   max-width: 500px;
   padding: 12px 16px;
@@ -75,16 +100,19 @@
   color: var(--dark-grey);
   font-size: 1rem;
   font-family: inherit;
-  resize: vertical;
-  min-height: 80px;
   transition: border-color 0.3s ease;
 }
 
-.filtersArea textarea:hover {
+.filtersArea input[type="text"]::placeholder {
+  color: var(--accent-grey);
+  opacity: 0.7;
+}
+
+.filtersArea input[type="text"]:hover {
   border-color: var(--accent-grey);
 }
 
-.filtersArea textarea:focus {
+.filtersArea input[type="text"]:focus {
   outline: none;
   border-color: var(--dark-grey);
 }
@@ -100,39 +128,11 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
+  display: block;
+  margin: 0 auto;
 }
 
 .filtersArea button:hover {
-  background-color: var(--accent-grey);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-/* ============================================
-   HISTORY SECTION
-   ============================================ */
-.history-section {
-  margin: 40px auto;
-  padding: 20px 0;
-  border-top: 1px solid rgba(168, 167, 163, 0.3);
-  border-bottom: 1px solid rgba(168, 167, 163, 0.3);
-}
-
-.history-section button {
-  padding: 12px 24px;
-  background-color: var(--medium-grey);
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  margin: 0 auto;
-  display: block;
-}
-
-.history-section button:hover {
   background-color: var(--accent-grey);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -145,12 +145,49 @@
   margin-top: 40px;
 }
 
+/* Results header with count and history button */
+.results-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 30px;
+  position: relative;
+}
+
 .results-section p {
   text-align: center;
   font-size: 1.2rem;
   color: var(--accent-grey);
-  margin: 20px 0;
+  margin: 0;
   font-weight: 500;
+}
+
+/* History button in results header */
+.history-btn {
+  padding: 8px 16px;
+  background-color: var(--medium-grey);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  position: absolute;
+  right: 30px;
+}
+
+.history-btn:hover {
+  background-color: var(--accent-grey);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* Character cards container */
@@ -162,4 +199,40 @@
   justify-content: center;
   max-width: 1400px;
   margin: 0 auto;
+}
+
+/* ============================================
+   NO RESULTS STATE
+   ============================================ */
+.no-results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 20px;
+  margin: 40px auto;
+  max-width: 600px;
+}
+
+.no-results img {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  margin-bottom: 30px;
+  border-radius: 12px;
+  opacity: 0.9;
+  filter: grayscale(20%);
+}
+
+.no-results-text {
+  text-align: center;
+  color: var(--accent-grey);
+  font-size: 1.3rem;
+  line-height: 1.8;
+  font-weight: 500;
+}
+
+.no-results-text em {
+  color: var(--dark-grey);
+  font-style: normal;
+  font-weight: 700;
 }

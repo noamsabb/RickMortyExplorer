@@ -103,6 +103,28 @@
 }
 
 /* ============================================
+   PREMIUM FEATURE NOTE
+   ============================================ */
+.premium-note {
+  background: linear-gradient(135deg, #f5f5f0 0%, #e8e6e1 100%);
+  border-left: 3px solid #ffd700;
+  padding: 12px 20px;
+  margin: 0;
+}
+
+.premium-note p {
+  margin: 0;
+  color: var(--accent-grey);
+  font-size: 0.9rem;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.premium-note em {
+  font-style: italic;
+}
+
+/* ============================================
    CONTENT AREA
    ============================================ */
 .history-content {
@@ -152,12 +174,43 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
   border-left: 4px solid var(--medium-grey);
+  position: relative;
 }
 
 .history-item:hover {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
   transform: translateX(-5px);
   border-left-color: var(--dark-grey);
+}
+
+/* Delete button for individual history items */
+.delete-item-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: var(--soft-grey);
+  color: var(--dark-grey);
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  font-weight: 700;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.delete-item-btn:hover {
+  background-color: #dc3545;
+  color: white;
+  transform: rotate(90deg) scale(1.1);
+  box-shadow: 0 2px 6px rgba(220, 53, 69, 0.3);
 }
 
 .history-item p {

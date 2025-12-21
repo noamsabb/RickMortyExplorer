@@ -3,131 +3,142 @@
        FILTERS AREA - Character filtering controls
        ============================================ -->
   <div class="filtersArea">
-    <!-- Gender Filter Section -->
-    <div class="filter-group">
-    <input
-      type="radio"
-      id="male"
-      name="gender"
-      value="Male"
-      [(ngModel)]="selectedGender"
-      (ngModelChange)="filterCharacters()"
-    />
-    <label for="male">Male</label>
-    <input
-      type="radio"
-      id="female"
-      name="gender"
-      value="Female"
-      [(ngModel)]="selectedGender"
-      (ngModelChange)="filterCharacters()"
-    />
-    <label for="female">Female</label>
-    <input
-      type="radio"
-      id="genderless"
-      name="gender"
-      value="Genderless"
-      [(ngModel)]="selectedGender"
-      (ngModelChange)="filterCharacters()"
-    />
-    <label for="genderless">Genderless</label>
-    <input
-      type="radio"
-      id="unknownGender"
-      name="gender"
-      value="Unknown"
-      [(ngModel)]="selectedGender"
-      (ngModelChange)="filterCharacters()"
-    />
-    <label for="unknownGender">Unknown</label>
-    <input
-      type="radio"
-      id="allGender"
-      name="gender"
-      value=""
-      [(ngModel)]="selectedGender"
-      (ngModelChange)="filterCharacters()"
-    />
-    <label for="allGender">All</label>
-    </div>
+    <!-- Radio Buttons and Dropdowns Grid -->
+    <div class="filters-grid">
+      <!-- Left Column: Radio Buttons -->
+      <div class="radio-section">
+        <!-- Gender Filter Section -->
+        <div class="filter-group">
+        <input
+          type="radio"
+          id="male"
+          name="gender"
+          value="Male"
+          [(ngModel)]="selectedGender"
+          (ngModelChange)="filterCharacters()"
+        />
+        <label for="male">Male</label>
+        <input
+          type="radio"
+          id="female"
+          name="gender"
+          value="Female"
+          [(ngModel)]="selectedGender"
+          (ngModelChange)="filterCharacters()"
+        />
+        <label for="female">Female</label>
+        <input
+          type="radio"
+          id="genderless"
+          name="gender"
+          value="Genderless"
+          [(ngModel)]="selectedGender"
+          (ngModelChange)="filterCharacters()"
+        />
+        <label for="genderless">Genderless</label>
+        <input
+          type="radio"
+          id="unknownGender"
+          name="gender"
+          value="Unknown"
+          [(ngModel)]="selectedGender"
+          (ngModelChange)="filterCharacters()"
+        />
+        <label for="unknownGender">Unknown</label>
+        <input
+          type="radio"
+          id="allGender"
+          name="gender"
+          value=""
+          [(ngModel)]="selectedGender"
+          (ngModelChange)="filterCharacters()"
+        />
+        <label for="allGender">All</label>
+        </div>
 
-    <!-- Status Filter Section -->
-    <div class="filter-group">
-    <input
-      type="radio"
-      id="alive"
-      name="status"
-      value="Alive"
-      [(ngModel)]="selectedStatus"
-      (ngModelChange)="filterCharacters()"
-    />
-    <label for="alive">Alive</label>
-    <input
-      type="radio"
-      id="dead"
-      name="status"
-      value="Dead"
-      [(ngModel)]="selectedStatus"
-      (ngModelChange)="filterCharacters()"
-    />
-    <label for="dead">Dead</label>
-    <input
-      type="radio"
-      id="unknown"
-      name="status"
-      value="unknown"
-      [(ngModel)]="selectedStatus"
-      (ngModelChange)="filterCharacters()"
-    />
-    <label for="unknown">Unknown</label>
-    <input
-      type="radio"
-      id="all"
-      name="status"
-      value=""
-      [(ngModel)]="selectedStatus"
-      (ngModelChange)="filterCharacters()"
-    />
-    <label for="all">All</label>
-    </div>
+        <!-- Status Filter Section -->
+        <div class="filter-group">
+        <input
+          type="radio"
+          id="alive"
+          name="status"
+          value="Alive"
+          [(ngModel)]="selectedStatus"
+          (ngModelChange)="filterCharacters()"
+        />
+        <label for="alive">Alive</label>
+        <input
+          type="radio"
+          id="dead"
+          name="status"
+          value="Dead"
+          [(ngModel)]="selectedStatus"
+          (ngModelChange)="filterCharacters()"
+        />
+        <label for="dead">Dead</label>
+        <input
+          type="radio"
+          id="unknown"
+          name="status"
+          value="unknown"
+          [(ngModel)]="selectedStatus"
+          (ngModelChange)="filterCharacters()"
+        />
+        <label for="unknown">Unknown</label>
+        <input
+          type="radio"
+          id="all"
+          name="status"
+          value=""
+          [(ngModel)]="selectedStatus"
+          (ngModelChange)="filterCharacters()"
+        />
+        <label for="all">All</label>
+        </div>
+      </div>
 
-    <!-- Type Dropdown Filter -->
-    <div class="filter-group">
-    <select
-      [(ngModel)]="selectedType"
-      id="typesDropdown"
-      (ngModelChange)="filterCharacters()"
-    >
-      <option selected value="">Select Type ...</option>
-      @for (type of types; track $index) {
-      <option [value]="type">{{ type }}</option>
-      }
-    </select>
-    </div>
+      <!-- Right Column: Dropdowns -->
+      <div class="dropdown-section">
+        <!-- Type Dropdown Filter -->
+        <div class="filter-group">
+        <select
+          [(ngModel)]="selectedType"
+          id="typesDropdown"
+          (ngModelChange)="filterCharacters()"
+        >
+          <option selected value="">Select Type ...</option>
+          @for (type of types; track $index) {
+          <option [value]="type">{{ type }}</option>
+          }
+        </select>
+        </div>
 
-    <!-- Species Dropdown Filter -->
-    <div class="filter-group">
-    <select
-      [(ngModel)]="selectedSpecies"
-      id="speciesDropdown"
-      (ngModelChange)="filterCharacters()"
-    >
-      <option selected value="">Select Species ...</option>
-      @for (species of species; track $index) {
-      <option [value]="species">{{ species }}</option>
-      }
-    </select>
+        <!-- Species Dropdown Filter -->
+        <div class="filter-group">
+        <select
+          [(ngModel)]="selectedSpecies"
+          id="speciesDropdown"
+          (ngModelChange)="filterCharacters()"
+        >
+          <option selected value="">Select Species ...</option>
+          @for (species of species; track $index) {
+          <option [value]="species">{{ species }}</option>
+          }
+        </select>
+        </div>
+      </div>
     </div>
 
     <!-- Text Search Input -->
-    <div class="filter-group">
-    <textarea
+    <div class="filter-group search-group">
+    <input
+      type="text"
       name="search"
       [(ngModel)]="textToSearch"
       (ngModelChange)="filterCharacters()"
       id="searchTextArea"
-    >Search for character ..</textarea>
+      placeholder="Search for character ..."
+    />
     </div>
 
     <div class="filter-group">
@@ -137,26 +148,35 @@
   <!-- End Filters Area -->
 
   <!-- ============================================
-       SEARCH HISTORY SECTION
-       ============================================ -->
-  <div class="history-section">
-  <button (click)="toggleHistory()">Show Search History</button>
-
-  <!--Search History panel -->
-  <app-search-history *ngIf="showHistory" (close)="showHistory = false">
-  </app-search-history>
-  </div>
-
-  <!-- ============================================
        RESULTS SECTION
        ============================================ -->
   <div class="results-section">
-  <p>Total results in your research: {{ charactersToDisplay.length }}</p>
+    <!-- Results header with count and history button -->
+    <div class="results-header">
+      <p>Total results in your research: {{ charactersToDisplay.length }}</p>
+      <button class="history-btn" (click)="toggleHistory()">Show Search History</button>
+    </div>
 
-  <div class="characters-container">
-    @for (c of charactersToDisplay; track $index) {
-    <app-character-card [character]="c"> </app-character-card>
-    }
-  </div>
+    <!--Search History panel -->
+    <app-search-history *ngIf="showHistory" (close)="showHistory = false">
+    </app-search-history>
+
+  <!-- No results state -->
+  @if (charactersToDisplay.length === 0) {
+    <div class="no-results">
+      <img src="/assets/no-results.jpg" alt="No results found">
+      <p class="no-results-text">
+        No characters found in this dimension, Morty!<br>
+        <em>*burp*</em><br>
+        Adjust your filters and try again!
+      </p>
+    </div>
+  } @else {
+    <div class="characters-container">
+      @for (c of charactersToDisplay; track $index) {
+      <app-character-card [character]="c"> </app-character-card>
+      }
+    </div>
+  }
   </div>
 </div>

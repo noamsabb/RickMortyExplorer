@@ -27,4 +27,9 @@ export class SearchHistory {
   deleteSearchHistory(){
     this.historyService.clearSearchHistory();
   }
+
+  //Delete a single entry from search history
+  deleteEntry(id: number): void {
+    this.historyService.deleteEntry(id);
+  }
 }

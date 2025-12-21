@@ -10,17 +10,24 @@
       <button class="close-btn" (click)="closeHistory()">✕</button>
     </div>
 
+    <!-- Premium feature joke -->
+    <div class="premium-note">
+      <p>💎 <em>Want to reload these searches? That's interdimensional cable premium, Morty! *burp*</em></p>
+    </div>
+
     <div class="history-content">
       <!-- Empty state when no search history -->
       @if (searchHistory.length === 0) {
         <div class="empty-state">
           <img src="/assets/history.jpg" alt="No history">
-          <p class="empty-message">Morty, where's the search history? burp Oh right, you haven't searched anything yet!</p>
+          <p class="empty-message">Morty, where's the search history? <br>
+        <em>*burp*</em><br> Oh right, you haven't searched anything yet!</p>
         </div>
       } @else {
         <!-- Loop through search history entries -->
         @for (entry of searchHistory; track entry.id) {
           <div class="history-item">
+            <button class="delete-item-btn" (click)="deleteEntry(entry.id)" title="Delete this entry">✕</button>
             <p><strong>Search:</strong> {{ entry.textToSearch || 'No text' }}</p>
             <p><strong>Gender:</strong> {{ entry.gender || 'All' }}</p>
             <p><strong>Status:</strong> {{ entry.status || 'All' }}</p>
