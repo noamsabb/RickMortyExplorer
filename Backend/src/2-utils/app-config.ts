@@ -5,7 +5,7 @@ dotenv.config({ quiet: true });
 
 class AppConfig {
     public readonly port = 4000;
-    public readonly apiUrl =  process.env.API_URL!;
+    public readonly apiUrl = process.env.API_URL || "https://rickandmortyapi.com/api/character";
 }
 
 export const appConfig = new AppConfig();

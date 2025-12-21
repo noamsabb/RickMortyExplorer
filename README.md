@@ -20,11 +20,23 @@ Make sure you have the following installed on your machine:
    cd RickMortyExplorer
    ```
 
-2. Open **two separate terminal windows**:
+2. **Configure the Backend Environment**:
+   
+   Before running the backend, you need to set up the environment variables:
+   
+   - Navigate to the `Backend` directory
+   - Copy the `.env.example` file and rename it to `.env`:
+     ```bash
+     cd Backend
+     cp .env.example .env
+     ```
+   - The `.env` file contains the API URL for the Rick and Morty API. You can modify it if needed, but the default values will work out of the box.
+
+3. Open **two separate terminal windows**:
     1. Navigate to the `frontend` directory in one terminal.
     2. Navigate to the `backend` directory in the other terminal.
 
-3. Run the following command **in each terminal** to install the necessary modules:
+4. Run the following command **in each terminal** to install the necessary modules:
     ```bash
     npm install
     ```
@@ -39,4 +51,4 @@ Make sure you have the following installed on your machine:
 2. The backend and frontend should launch. Once everything is running, your browser should automatically open. If it doesn't, go to [http://localhost:4000](http://localhost:4000).
 
     - The frontend will be hosted at [http://localhost:4000](http://localhost:4000).
-    - The backend will run on its designated port.(
+    - The backend will run on its designated port.
