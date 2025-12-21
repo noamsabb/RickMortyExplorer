@@ -20,9 +20,9 @@ Make sure you have the following installed on your machine:
    cd RickMortyExplorer
    ```
 
-2. **Configure the Backend Environment**:
+2. **Configure the Backend Environment** (Optional but Recommended):
    
-   Before running the backend, you need to set up the environment variables:
+   While the backend will run with default values, it's recommended to set up your environment variables:
    
    - Navigate to the `Backend` directory
    - Copy the `.env.example` file and rename it to `.env`:
@@ -30,7 +30,8 @@ Make sure you have the following installed on your machine:
      cd Backend
      cp .env.example .env
      ```
-   - The `.env` file contains the API URL for the Rick and Morty API. You can modify it if needed, but the default values will work out of the box.
+   - The `.env` file contains the API URL for the Rick and Morty API. You can modify it if needed.
+   - **Note**: If you skip this step, the application will still work using default configuration values.
 
 3. Open **two separate terminal windows**:
     1. Navigate to the `frontend` directory in one terminal.
