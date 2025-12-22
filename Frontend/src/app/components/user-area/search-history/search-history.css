@@ -253,8 +253,7 @@
 .history-panel::-webkit-scrollbar-thumb:hover {
   background: var(--accent-grey);
 }
-  margin: 5px 0;
-}
+
 
 .empty-message {
   text-align: center;
