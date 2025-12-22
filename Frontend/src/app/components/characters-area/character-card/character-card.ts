@@ -36,7 +36,7 @@ export class CharacterCard implements OnInit, OnChanges {
     }
   }
 
-  //Check if character is favorite
+  //Check if character is favorite and update flag
   private updateFavoriteStatus(): void {
     this.isFavoriteFlag = this.favoritesService.isFavorite(this.character.id);
   }

@@ -1,5 +1,14 @@
 div {
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.header-logo {
+    height: 100px;
+    width: auto;
+    margin: -10px 0;
 }
 
 h1 {

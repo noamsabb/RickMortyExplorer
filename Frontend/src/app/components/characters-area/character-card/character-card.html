@@ -8,7 +8,7 @@
   <p>{{ character.type }}</p>
   <p><strong>Species:</strong> {{ character.species }}</p>
 
-  <button (click)="moreInfoFlag = !moreInfoFlag">Open Modal</button>
+  <button (click)="moreInfoFlag = !moreInfoFlag">More Info</button>
 
   <!-- More Info modal -->
   <div *ngIf="moreInfoFlag" class="moreInfo-modal">

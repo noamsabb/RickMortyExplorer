@@ -3,14 +3,12 @@
   <!-- Side panel - stops click propagation to prevent closing -->
   <div class="history-panel" (click)="$event.stopPropagation()">
     
-    <!-- Header with title and action buttons -->
     <div class="history-header">
       <h3>Search History</h3>
       <button (click)="deleteSearchHistory()">Delete All history</button>
       <button class="close-btn" (click)="closeHistory()">✕</button>
     </div>
 
-    <!-- Premium feature joke -->
     <div class="premium-note">
       <p>💎 <em>Want to reload these searches? That's interdimensional cable premium, Morty! *burp*</em></p>
     </div>

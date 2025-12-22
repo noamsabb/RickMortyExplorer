@@ -9,6 +9,7 @@ import { CharacterModel } from '../../../models/character-model';
 })
 export class CharacterDetails {
 
+  //Get character from parent component
     @Input()
   public character!: CharacterModel;
   
